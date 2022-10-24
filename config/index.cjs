@@ -23,20 +23,13 @@ const USER_CONFIG = {
       // 使用微信测试号：扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
       id: 'o4epy6GlyLjFCeuKYuRUBDsccFRI',
       // 使用微信测试号：你想对他发送的模板消息的模板ID
-      useTemplateId: 'anv0AqlFFxzogvfU0C2NAL3SUW80fF2rIhLTo4y5mas',
+      useTemplateId: 'gQiLmPH_c79BXnwNlvC_W0yGeXGy5b1eOl7CU7Ge6fU',
       // 新历生日, 仅用作获取星座运势, 格式必须为MM-DD
       horoscopeDate: '11-01',
       festivals: [
-        // 注意：此条配置日期为阴历日期，因为`type`中 “生日” 之前有 * 符号
-        {
-          type: '*生日', name: '', year: '', date: '',
-        },
         // 注意：此条配置日期为阳历日期，因为`type`中 “生日” 之前没有 * 符号
         {
           type: '生日', name: '津津', year: '1999', date: '11-01',
-        },
-        {
-          type: '节日', name: '相识纪念日', year: '', date: '',
         },
       ],
       // 我们在一起已经有xxxx天了的配置
@@ -51,7 +44,7 @@ const USER_CONFIG = {
 
 
   // 【推送完成提醒】模板id, 用来看自己有没有发送成功的那个模板
-  CALLBACK_TEMPLATE_ID: 'anv0AqlFFxzogvfU0C2NAL3SUW80fF2rIhLTo4y5mas',
+  CALLBACK_TEMPLATE_ID: 'gQiLmPH_c79BXnwNlvC_W0yGeXGy5b1eOl7CU7Ge6fU',
 
   CALLBACK_USERS: [
     {
