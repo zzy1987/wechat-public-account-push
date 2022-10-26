@@ -56,9 +56,18 @@ const USER_CONFIG = {
 
 }
 
-def get_words():
-  words = requests.get("https://api.shadiao.pro/chp")
-  if words.status_code != 200:
-    return get_words()
-  return words.json()['data']['text']
 
+  // 【推送完成提醒】模板id, 用来看自己有没有发送成功的那个模板
+  CALLBACK_TEMPLATE_ID: 'gQiLmPH_c79BXnwNlvC_W0yGeXGy5b1eOl7CU7Ge6fU',
+
+  CALLBACK_USERS: [
+    {
+      name: '自己',
+      // 使用微信测试号：自己的微信id，扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
+      id: 'o4epy6Dbi2lpURrd8fSbn2ybAjb8',
+    }
+  ],
+
+}
+
+module.exports = USER_CONFIG
