@@ -29,6 +29,16 @@ wechat-public-account-push
 
 [>>> 点这里获取更新公告✨](https://github.com/wangxinleo/wechat-public-account-push/discussions/categories/announcements)
 
+<h3 style="color: red;">重要通知：</h3>
+
+**微信团队于2023-05-04日晚12点下线【自定义颜色】、【emoji表情符号】、【自定义换行】、【尾部/备注字段】。**
+
+**【微信测试号】的推送服务已受到影响，原有的推送模板需要用户自行修改，详见 [如何修复因2023-05-04微信推送服务规范整改，导致推送服务异常](https://github.com/wangxinleo/wechat-public-account-push/issues/326)**
+
+**使用服务号推送不受影响**
+
+---
+
 详细功能如下：
 
 - **支持多个收件人设置成不同的测试号模板，专属定制更贴心**
@@ -104,7 +114,7 @@ wechat-public-account-push
 ![图片无法查看请移步顶部访问 国内备用仓库地址](img/how-to-use/run-img.jpg)
 
 ![图片无法查看请移步顶部访问 国内备用仓库地址](img/how-to-use/run-img-2.jpg)
-
+### 新手教学[⭐点击开始学习](./docs/novice-teaching/novice.md)
 ## 1. 如何使用
 
 wechat-public-account-push 实现自消息推送的原理，是通过调用一系列开放的api实现的, 所以也非常适合初学者学习。
@@ -229,7 +239,7 @@ wechat-public-account-push 实现自消息推送的原理，是通过调用一�
 | province.DATA       | 省份             | 广东           |
 | city.DATA              | 城市             | 惠州           |
 
-**天气类**
+**天气类（由于是免费接口，服务器并不稳定会拿不到数据，推荐使用下方的天行接口）**
 
 | 参数                   | 详细     | 示例                                 |
 |----------------------|--------|------------------------------------|
@@ -250,42 +260,107 @@ wechat-public-account-push 实现自消息推送的原理，是通过调用一�
 **节假日**
 | 参数 | 详细 | 示例 |
 |------------------------|----------------|----------------|
-| holidaytts.DATA | 下一休息日综合提醒 | 还有3天就周六了，好好工作吧！距离国庆还有18天，早着呢 |
+| holidaytts.DATA (**微信测试号无法使用**) | 下一休息日综合提醒 | 还有3天就周六了，好好工作吧！距离国庆还有18天，早着呢 |
+
+`{index}`替换为要显示的第N-1个
+
+> 用法示例：
+>
+> 为了能在微信推送中使用，长文本被截取成20个字符每段
+>
+> **wx_holidaytts_0.DATA** -> 今天是工作日啊~距离下个周六，还有3天;
+>
+> **wx_holidaytts_1.DATA** -> 距离最近的一个节日是9月29日的中秋节，
+>
+> ...
+>
+> **wx_holidaytts_999.DATA**
+>
+
+| 参数                              | 详细                      | 示例                |
+|---------------------------------|-------------------------|-------------------|
+| wx_holidaytts_{index}.DATA     | 下一休息日综合提醒 | 还有3天就周六了，好好工作吧！距离国庆还有18天，早着呢 |
 
 **每日N句**
 
 | 参数                       | 详细        | 示例                                                    |
 |--------------------------|-----------|-------------------------------------------------------|
-| note_en.DATA             | 金山每日一句-英文 | Nothing in this world that's worth having comes easy. |
-| note_ch.DATA             | 金山每日一句-中文 | 这世界上凡是值得拥有的东西，都不易获得。                                  |
-| one_talk.DATA            | 每日一言-内容   | 愿你遍布祖国山河，觉得人生也值得                                      |
+| note_en.DATA (**微信测试号无法使用**)             | 金山每日一句-英文 | Nothing in this world that's worth having comes easy. |
+| note_ch.DATA (**微信测试号无法使用**)             | 金山每日一句-中文 | 这世界上凡是值得拥有的东西，都不易获得。                                  |
+| one_talk.DATA (**微信测试号无法使用**)            | 每日一言-内容   | 愿你遍布祖国山河，觉得人生也值得                                      |
 | talk_from.DATA           | 每日一言-来源   | 晓良                                                    |
-| earthy_love_words.DATA   | 土味情话(彩虹屁) | 我今晚会很忙，忙着跟你过日子                                        |
-| moment_copyrighting.DATA | 朋友圈文案     | 错过太阳就不要再错过月亮了                                         |
-| poison_chicken_soup.DATA | 毒鸡汤       | 我从不以强凌弱，我欺负他之前，真不晓得他比我弱。                              |
-| poetry_content.DATA      | 古诗古文-内容   | 举头望明月，低头思故乡。                                          |
+| earthy_love_words.DATA (**微信测试号无法使用**)   | 土味情话(彩虹屁) | 我今晚会很忙，忙着跟你过日子                                        |
+| moment_copyrighting.DATA (**微信测试号无法使用**) | 朋友圈文案     | 错过太阳就不要再错过月亮了                                         |
+| poison_chicken_soup.DATA (**微信测试号无法使用**) | 毒鸡汤       | 我从不以强凌弱，我欺负他之前，真不晓得他比我弱。                              |
+| poetry_content.DATA (**微信测试号无法使用**)      | 古诗古文-内容   | 举头望明月，低头思故乡。                                          |
 | poetry_title.DATA        | 古诗古文-标题   | 静夜思                                                   |
 | poetry_author.DATA       | 古诗古文-作者   | 李白                                                    |
 | poetry_dynasty.DATA      | 古诗古文-朝代   | 唐代                                                    |
+
+
+`{index}`替换为要显示的第N-1个
+
+> 用法示例：
+>
+> 为了能在微信推送中使用，长文本被截取成20个字符每段
+>
+> **wx_one_talk_0.DATA** -> 风起，花飘零，梦醒时分，却有几多愁，上
+>
+> **wx_one_talk_1.DATA** -> 心头。
+>
+> ...
+>
+> **wx_one_talk_999.DATA**
+>
+
+| 参数                              | 详细                      | 示例                |
+|---------------------------------|-------------------------|-------------------|
+| wx_note_en_{index}.DATA             | 金山每日一句-英文 | Nothing in this world that's worth having comes easy. |
+| wx_note_ch_{index}.DATA             | 金山每日一句-中文 | 这世界上凡是值得拥有的东西，都不易获得。                                  |
+| wx_one_talk_{index}.DATA            | 每日一言-内容   | 愿你遍布祖国山河，觉得人生也值得                                      |
+| wx_earthy_love_words_{index}.DATA    | 土味情话(彩虹屁) | 我今晚会很忙，忙着跟你过日子                                        |
+| wx_moment_copyrighting_{index}.DATA  | 朋友圈文案     | 错过太阳就不要再错过月亮了                                         |
+| wx_poison_chicken_soup_{index}.DATA  | 毒鸡汤       | 我从不以强凌弱，我欺负他之前，真不晓得他比我弱。                              |
+| wx_poetry_content_{index}.DATA       | 古诗古文-内容   | 举头望明月，低头思故乡。                                          |
 
 **星座运势**
 
 | 参数                           | 详细   | 示例                |
 |------------------------------|------|-------------------|
-| comprehensive_horoscope.DATA | 综合运势 | 太多了，不示例了，自己调用查看效果 |
-| love_horoscope.DATA          | 爱情运势 | 太多了，不示例了，自己调用查看效果 |
-| career_horoscope.DATA        | 事业学业 | 太多了，不示例了，自己调用查看效果 |
-| wealth_horoscope.DATA        | 财富运势 | 太多了，不示例了，自己调用查看效果 |
-| healthy_horoscope.DATA       | 健康运势 | 太多了，不示例了，自己调用查看效果 |
+| comprehensive_horoscope.DATA (**微信测试号无法使用**) | 综合运势 | 太多了，不示例了，自己调用查看效果 |
+| love_horoscope.DATA (**微信测试号无法使用**)          | 爱情运势 | 太多了，不示例了，自己调用查看效果 |
+| career_horoscope.DATA (**微信测试号无法使用**)        | 事业学业 | 太多了，不示例了，自己调用查看效果 |
+| wealth_horoscope.DATA (**微信测试号无法使用**)        | 财富运势 | 太多了，不示例了，自己调用查看效果 |
+| healthy_horoscope.DATA (**微信测试号无法使用**)       | 健康运势 | 太多了，不示例了，自己调用查看效果 |
 
 **计时类**
 
-| 参数                    | 详细                        | 示例                                                            |
-|-----------------------|---------------------------|---------------------------------------------------------------|
-| ~~love_day.DATA~~     | 已预置, 但是可以删掉, 在配置中自定义, 见下文 | 2674                                                          |
-| ~~marry_day.DATA~~    | 已预置, 但是可以删掉, 在配置中自定义, 见下文 | 965                                                           |
-| birthday_message.DATA | 生日消息和节日消息                 | 距离 宝贝 的生日还有122天，距离 中秋节还有30天                                   |
-| course_schedule.DATA  | 每日的课表                     | 08:00-09:35 高等数学<br/> 09:35-10:35 大学语文 <br/> 10:35-11:35 大学英语 |
+| 参数                                    | 详细                        | 示例                                                            |
+|---------------------------------------|---------------------------|---------------------------------------------------------------|
+| ~~love_day.DATA~~                     | 已预置, 但是可以删掉, 在配置中自定义, 见下文 | 2674                                                          |
+| ~~marry_day.DATA~~                    | 已预置, 但是可以删掉, 在配置中自定义, 见下文 | 965                                                           |
+| birthday_message.DATA (**微信测试号无法使用**) | 生日消息和节日消息                 | 距离 宝贝 的生日还有122天，距离 中秋节还有30天                                   |
+| course_schedule.DATA (**微信测试号无法使用**)  | 每日的课表                     | 08:00-09:35 高等数学<br/> 09:35-10:35 大学语文 <br/> 10:35-11:35 大学英语 |
+
+
+`{index}`替换为要显示的第N-1个
+
+> 用法示例：
+>
+> 距离第1近的生日消息和节日消息请填写
+>
+> **wx_birthday_0.DATA** -> 距离 宝贝 的生日还有122天
+>
+> 第2节课请填写
+>
+> **wx_course_schedule_1.DATA** -> 08:00-09:35 高等数学
+>
+> (请确保在配置文件中设置了正确的天数）
+
+| 参数                              | 详细                      | 示例                |
+|---------------------------------|-------------------------|-------------------|
+| wx_birthday_{index}.DATA        | 距离第{index-1}近的生日消息和节日消息 | 距离 宝贝 的生日还有122天   |
+| wx_course_schedule_{index}.DATA | 	第{index-1}节课           | 	08:00-09:35 高等数学 |
 
 **天行简单API**
 
@@ -517,6 +592,8 @@ PR 来纠正我，一样都算是对开源做贡献了。
 
 @shuangxunian ShuangxuNian
 
+@只会前端的小废物
+
 感谢那些默默支持我, 鼓励我继续更新这个小玩具的朋友。
 
 感谢所有参与到开发/测试中的朋友们，是大家的帮助让 TA 越来越好！ (*´▽｀)ノノ
@@ -533,7 +610,19 @@ PR 来纠正我，一样都算是对开源做贡献了。
 
 <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=y0plwm9zhOI35EwlOdRh372g4KWbqMSt&jump_from=webapi"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="wechat-public-account-push 交流群" title="wechat-public-account-push 交流群"></a>
 
-## 12. 其他
+## 12. 运行
+
+注意，在官方文档中有这么一段：
+
+```
+To prevent unnecessary workflow runs, scheduled workflows may be disabled automatically. When a public repository is forked, scheduled workflows are disabled by default. In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days.
+```
+
+也就是说，定时执行的任务需要每隔 60 天激活一次。
+
+使用 “import repository” 功能重新导入自己已经fork过的仓库，选为私有后，就不会出现这种情况了。
+
+## 13. 其他
 
 时区查询: [https://www.zeitverschiebung.net/cn/all-time-zones.html](https://www.zeitverschiebung.net/cn/all-time-zones.html)
 
